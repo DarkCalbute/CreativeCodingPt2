@@ -8,10 +8,14 @@ document.body.style.backgroundColor = '#232323';
 
 const settings = {
   dimensions: [ 1080, 1080 ],
-  animate: true
+  //animate: true
 };
 
+const seed = random.getRandomSeed();
+
 const sketch = ({context, width, height}) => {
+  random.setSeed(seed);
+
   const bgColor = random.pick(risoColors).hex;
   const num = 60;
   const degrees = -30;
@@ -19,14 +23,20 @@ const sketch = ({context, width, height}) => {
     random.pick(risoColors).hex,
     random.pick(risoColors).hex
   ]
+  const mask = {
+    radius: width * 0.4,
+    sides: 6,
+    x: width * 0.5,
+    y: height * 0.5
+  }
   let x, y, w, h, fill, stroke, blend;
   let rects = [];
 
-
+  // set up rects array
   for (let i = 0; i < num; i++) {
     x = random.range(0, width);
     y = random.range(0, height);
-    w = random.range(600, width);
+    w = random.range(200, 600);
     h = random.range(40, 200);
 
     fill = random.pick(risoColorsTab);
@@ -41,30 +51,31 @@ const sketch = ({context, width, height}) => {
     context.fillStyle = bgColor;
     context.fillRect(0, 0, width, height);
     
+    //polygone mask
     context.save();
-    context.translate(width * 0.5, height * 0.5);
-
-    context.beginPath();
-    context.moveTo(0, -300);
-    context.lineTo(300, 200);
-    context.lineTo(-300, 200);
-    context.closePath();
-
-    context.lineWidth = 10;
-    context.strokeStyle = 'black';
-    context.stroke();
-
+    context.translate(mask.x, mask.y);
+    drawPolygone(context, mask.radius, mask.sides);
     context.clip();
 
+    //rects
     rects.forEach(rect => {
       context.save();
-      context.translate(width * -0.5, height * -0.5);
+      context.translate(-mask.x, -mask.y);
       context.translate(rect.x, rect.y);
 
       drawRectangle(context, rect, degrees);
 
       context.restore();
     });
+
+    //polygone outline
+    context.save();
+    drawPolygone(context, mask.radius, mask.sides);
+    context.globalCompositeOperation = 'color-burn';
+    context.lineWidth = 25;
+    context.strokeStyle = risoColorsTab[0];
+    context.stroke();
+    context.restore();
   };
 };
 
@@ -106,6 +117,21 @@ const drawRectangle = (context, rect, degrees) => {
   context.stroke();
 
   context.restore();
+}
+
+const drawPolygone = (context, radius, sides) => {
+  const slice = Math.PI * 2 / sides;
+
+  context.beginPath();
+  context.moveTo(0, -radius);
+
+  for (let i = 1; i < sides; i++) {
+    const theta = i * slice - Math.PI * 0.5;
+
+    context.lineTo(Math.cos(theta) * radius, Math.sin(theta) * radius);
+  }
+
+  context.closePath();
 }
 
 canvasSketch(sketch, settings);
