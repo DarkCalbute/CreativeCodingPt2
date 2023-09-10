@@ -3,3 +3,7 @@ CreativeCodingPt2 from domestica course
 src: https://www.domestika.org/fr/courses/3862-codage-creatif-sur-js-animation-son-et-couleur
 
 launch canvas npx canvas-sketch-cli file --save --open
+
+sketch01:
+
+![image](https://github.com/DarkCalbute/CreativeCodingPt2/assets/71269492/cbd41f11-6628-4559-80dd-9a8a0dd9fcd7)
