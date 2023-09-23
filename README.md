@@ -7,3 +7,7 @@ launch canvas npx canvas-sketch-cli file --save --open
 sketch01:
 
 ![image](https://github.com/DarkCalbute/CreativeCodingPt2/assets/71269492/cbd41f11-6628-4559-80dd-9a8a0dd9fcd7)
+
+sketch02-1:
+
+![image](https://github.com/DarkCalbute/CreativeCodingPt2/assets/71269492/e123d99b-54e0-4eb9-9054-565c2b196761)
