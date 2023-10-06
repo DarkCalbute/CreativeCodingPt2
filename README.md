@@ -15,3 +15,7 @@ sketch02-1:
 sketch02-2:
 
 ![image](https://github.com/DarkCalbute/CreativeCodingPt2/assets/71269492/06992aa5-7b34-4504-bfa6-de994fb35730)
+
+sketch03-2:
+
+![image](https://github.com/DarkCalbute/CreativeCodingPt2/assets/71269492/5ae0a8c1-09ff-418b-bd5d-03b2dd9b1384)
