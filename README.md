@@ -19,3 +19,11 @@ sketch02-2:
 sketch03-2:
 
 ![image](https://github.com/DarkCalbute/CreativeCodingPt2/assets/71269492/5ae0a8c1-09ff-418b-bd5d-03b2dd9b1384)
+
+sketch04:
+
+Adding vector force to particle
+
+![image](https://github.com/DarkCalbute/CreativeCodingPt2/assets/71269492/d9230549-44d4-49a8-af65-da10ec12b59e)
+
+![image](https://github.com/DarkCalbute/CreativeCodingPt2/assets/71269492/db323543-6241-4e20-b4af-1fe3d908eb19)
